@@ -76,6 +76,10 @@
 				</c:forEach>
 	</table>
 	
+	<br></br>
+	
+	<a href="${pageContext.request.contextPath}/proprietar/animals" >List Animale</a>
+	
 </body>
 
 </html>

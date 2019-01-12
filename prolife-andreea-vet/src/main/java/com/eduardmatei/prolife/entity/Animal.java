@@ -37,8 +37,8 @@ public class Animal {
 	@Column(name="data_nasterii")
 	private Date dataNasterii;
 	
-	@ManyToOne(cascade= {CascadeType.DETACH,CascadeType.MERGE,
-						  CascadeType.PERSIST,CascadeType.REFRESH})
+	@ManyToOne(cascade= {CascadeType.DETACH, CascadeType.PERSIST,
+						 CascadeType.REFRESH, CascadeType.MERGE})
 	@JoinColumn(name="proprietar_id")
 	private Proprietar proprietar;
 	
@@ -47,7 +47,9 @@ public class Animal {
 	private AnimalDetail animalDetail;
 	
 	public Animal() {
-		// TODO Auto-generated constructor stub
+		this.nume = "Catel";
+		this.specie = "Canina";
+		this.rasa = "Metis";
 	}
 
 	public Animal(String nume, String specie, String rasa, double greutate, Date dataNasterii) {

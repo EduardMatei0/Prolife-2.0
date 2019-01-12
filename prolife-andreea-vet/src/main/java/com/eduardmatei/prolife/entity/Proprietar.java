@@ -13,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
 @Table(name="proprietar")
 public class Proprietar {
@@ -35,7 +37,8 @@ public class Proprietar {
 	private Date data;
 	
 	@OneToMany(mappedBy="proprietar",
-				cascade= {CascadeType.ALL})
+				cascade= {CascadeType.DETACH, CascadeType.PERSIST,
+						 CascadeType.REFRESH, CascadeType.MERGE})
 	private List<Animal> animals;
 	
 	public Proprietar() {
@@ -107,6 +110,8 @@ public class Proprietar {
 		animals.add(animal);
 		animal.setProprietar(this);
 	}
+	
+	
 
 	@Override
 	public String toString() {

@@ -30,19 +30,19 @@
 		<h3>View Animal Detail</h3>
 		
 		
-		<p>Id : ${animalDetail.id}   </p>
+		<p> Id : ${animalDetail.id}   </p>
 		 
 		<br></br>
 		
-		<p>Anamneza : ${animalDetail.anamneza} </p>
+		<p> Anamneza : ${animalDetail.anamneza} </p>
 		
 		<br></br>
 		
-		<p>Tratament: ${animalDetail.tratament} </p>
+		<p> Tratament: ${animalDetail.tratament} </p>
 		
 		<br></br>
 		
-		<p>Observatii: ${animalDetail.observatii} </p>
+		<p> Observatii: ${animalDetail.observatii} </p>
 		
 		<div style="clear; both;"></div>
 		

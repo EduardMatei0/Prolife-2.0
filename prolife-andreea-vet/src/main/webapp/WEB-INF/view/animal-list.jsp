@@ -30,6 +30,7 @@
 					<th>Greutate</th>
 					<th>Proprietar Id</th>
 					<th>Animal Detail</th>
+					<th>Actions</th>
 					
 					
 					
@@ -41,6 +42,9 @@
 						<c:param name="animalId" value="${animal.id}" />
 					</c:url>
 					
+					<c:url var="deleteLink" value="/proprietar/deleteAnimal">
+						<c:param name="animalId" value="${animal.id}" />
+					</c:url>
 					
 					<tr>
 						<td> ${animal.id} </td>
@@ -50,9 +54,18 @@
 						<td> ${animal.greutate} </td>
 						<td> ${animal.proprietar.id} </td>
 						<td> <a href="${viewDetails}">Animal Detail</a> </td>
+						<td> 
+							<a href="${deleteLink}"
+									   onclick="if (!(confirm('Are you sure you want to delete this animal?'))) return false">Delete</a>
+						</td>
+						
 					</tr>
 				
 				</c:forEach>
 	</table>
+	
+	<br></br>
+	
+	<a href="${pageContext.request.contextPath}/proprietar/list" >List Proprietari</a>
 </body>
 </html>

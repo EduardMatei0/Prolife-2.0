@@ -10,10 +10,10 @@ public interface AnimalDAO {
 	
 	public List<Animal> getAnimals();
 	
-	public void saveAnimal(Animal animal);
+	public void saveAnimal(Animal animal, int proprietarId);
 	
 	public AnimalDetail getAnimalDetail(int id);
-	
-	public void addAnimalToProprietar(Animal animal, int proprietarId);
+			
+	public void deleteAnimal(int id);
 	
 }

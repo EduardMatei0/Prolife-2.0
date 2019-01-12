@@ -35,7 +35,7 @@
 			
 			
 			<!-- need to associate this data with proprietar id -->
-			<form:hidden path="id" />
+			<form:hidden path="proprietar.id" />
 			
 			<table>
 				<tbody>
@@ -62,8 +62,7 @@
 					<tr>
 						<td>${proprietar.id}</td>
 					</tr>
-					
-					
+										
 
 					<tr>
 						<td><label></label></td>

@@ -18,12 +18,12 @@ public interface ProlifeService {
 	
 	public List<Animal> getAnimals();
 	
-	public void saveAnimal(Animal animal);
-	
-	public void addAnimalToProprietar(Animal animal, int proprietarId);
+	public void saveAnimal(Animal animal, int proprietarId);
+
 	
 	public AnimalDetail getAnimalDetail(int id);
 	
+	public void deleteAnimal(int id);
 	
 	
 }

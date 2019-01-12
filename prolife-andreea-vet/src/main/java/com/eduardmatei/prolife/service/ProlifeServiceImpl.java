@@ -63,14 +63,15 @@ public class ProlifeServiceImpl implements ProlifeService {
 
 	@Override
 	@Transactional
-	public void saveAnimal(Animal animal) {
-		animalDao.saveAnimal(animal);		
+	public void saveAnimal(Animal animal, int proprietarId) {
+		animalDao.saveAnimal(animal, proprietarId);		
 	}
+	
 
 	@Override
 	@Transactional
-	public void addAnimalToProprietar(Animal animal, int proprietarId) {
-		animalDao.addAnimalToProprietar(animal, proprietarId);
+	public void deleteAnimal(int id) {
+		animalDao.deleteAnimal(id);
 		
 	}
 

@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.eduardmatei.prolife.entity.Animal;
 import com.eduardmatei.prolife.entity.Proprietar;
 
 @Repository
@@ -16,12 +17,15 @@ public class ProprietarDAOImpl implements ProprietarDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
+	@Autowired
+	private AnimalDAO animalDAO;
+	
 	@Override
 	public List<Proprietar> getProprietari() {
 		
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query<Proprietar> query = session.createQuery("from Proprietar order by lastName",Proprietar.class);
+		Query<Proprietar> query = session.createQuery("from Proprietar order by id",Proprietar.class);
 		
 		List<Proprietar> proprietars = query.getResultList();
 		
@@ -48,12 +52,17 @@ public class ProprietarDAOImpl implements ProprietarDAO {
 	@Override
 	public void deleteProprietar(int id) {
 		Session session = sessionFactory.getCurrentSession();
+				
+		Proprietar proprietar = session.get(Proprietar.class, id);
 		
-		Query query = session.createQuery("delete from Proprietar where id=:proprietarId");
+		if (proprietar.getAnimals() != null) {
+			for (Animal animal : proprietar.getAnimals()) {
+				animalDAO.deleteAnimal(animal.getId());
+			}
+		}
+
+		session.delete(proprietar);
 		
-		query.setParameter("proprietarId", id);
-		
-		query.executeUpdate();
 		
 	}
 

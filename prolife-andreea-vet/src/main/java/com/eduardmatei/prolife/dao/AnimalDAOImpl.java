@@ -18,8 +18,6 @@ public class AnimalDAOImpl implements AnimalDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 		
-	@Autowired
-	private ProprietarDAO proprietarDAO;
 	
 	@Override
 	public List<Animal> getAnimals() {
@@ -43,25 +41,29 @@ public class AnimalDAOImpl implements AnimalDAO {
 	}
 
 	@Override
-	public void saveAnimal(Animal animal) {
+	public void saveAnimal(Animal animal, int proprietarId) {
 		
 		Session session = sessionFactory.getCurrentSession();		
 			
-		
-		session.saveOrUpdate(animal);
-				
-	}
-
-	@Override
-	public void addAnimalToProprietar(Animal animal, int proprietarId) {
-		
-		Session session = sessionFactory.getCurrentSession();
-		
 		Proprietar proprietar = session.get(Proprietar.class, proprietarId);
 		
 		proprietar.add(animal);
 		
+		session.saveOrUpdate(animal);
+				
+	}
+	
+
+	@Override
+	public void deleteAnimal(int id) {
 		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query query = session.createQuery("delete from Animal where id=:animalId");
+		
+		query.setParameter("animalId", id);
+		
+		query.executeUpdate();
 		
 	}
 	
