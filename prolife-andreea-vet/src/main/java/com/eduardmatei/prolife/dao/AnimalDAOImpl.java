@@ -59,11 +59,9 @@ public class AnimalDAOImpl implements AnimalDAO {
 		
 		Session session = sessionFactory.getCurrentSession();
 		
-		Query query = session.createQuery("delete from Animal where id=:animalId");
+		Animal animal = session.get(Animal.class, id);
 		
-		query.setParameter("animalId", id);
-		
-		query.executeUpdate();
+		session.delete(animal);
 		
 	}
 	

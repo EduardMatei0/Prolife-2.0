@@ -14,7 +14,7 @@
 
 <br></br>
 
-<a href="${pageContext.request.contextPath}/proprietar/animals" >List Animale</a>
+<a href="${pageContext.request.contextPath}/animal/animals" >List Animale</a>
 
 </body>
 

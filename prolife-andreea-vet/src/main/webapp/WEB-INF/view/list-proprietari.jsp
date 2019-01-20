@@ -22,6 +22,8 @@
 		</div>
 	</div>
 	
+	<br>
+	
 	<input type="button" value="Add Proprietar"
 					   onclick="window.location.href='showFormForAdd'; return false;"
 					   class="add-button"
@@ -51,7 +53,7 @@
 						<c:param name="proprietarId" value="${proprietar.id}" />
 					</c:url>	
 					
-					<c:url var="saveAnimal" value="/proprietar/showFormForAddAnimal">
+					<c:url var="saveAnimal" value="/animal/showFormForAddAnimal">
 						<c:param name="proprietarId" value="${proprietar.id}" />
 					</c:url>
 					
@@ -78,7 +80,7 @@
 	
 	<br></br>
 	
-	<a href="${pageContext.request.contextPath}/proprietar/animals" >List Animale</a>
+	<a href="${pageContext.request.contextPath}/animal/animals" >List Animale</a>
 	
 </body>
 

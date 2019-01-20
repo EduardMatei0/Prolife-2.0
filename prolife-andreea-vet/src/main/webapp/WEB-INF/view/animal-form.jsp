@@ -58,10 +58,8 @@
 					<tr>
 						<td><label>Greutate:</label></td>
 						<td><form:input path="greutate" /></td>
-					</tr>
-					
+					</tr>					
 														
-
 					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save" /></td>

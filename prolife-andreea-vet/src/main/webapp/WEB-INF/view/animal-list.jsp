@@ -28,8 +28,9 @@
 					<th>Specie</th>
 					<th>Rasa</th>
 					<th>Greutate</th>
-					<th>Proprietar Id</th>
-					<th>Animal Detail</th>
+					<th>Id proprietar</th>
+					<th>Nume proprietar</th>
+					<th>Detalii animal</th>
 					<th>Actions</th>
 					
 					
@@ -38,11 +39,11 @@
 				
 				<c:forEach var="animal" items="${animals}" >
 					
-					<c:url var="viewDetails" value="/proprietar/animaldetails">
+					<c:url var="viewDetails" value="/animal/animaldetails">
 						<c:param name="animalId" value="${animal.id}" />
 					</c:url>
 					
-					<c:url var="deleteLink" value="/proprietar/deleteAnimal">
+					<c:url var="deleteLink" value="/animal/deleteAnimal">
 						<c:param name="animalId" value="${animal.id}" />
 					</c:url>
 					
@@ -53,6 +54,7 @@
 						<td> ${animal.rasa} </td>
 						<td> ${animal.greutate} </td>
 						<td> ${animal.proprietar.id} </td>
+						<td> ${animal.proprietar.firstName} </td>
 						<td> <a href="${viewDetails}">Animal Detail</a> </td>
 						<td> 
 							<a href="${deleteLink}"
