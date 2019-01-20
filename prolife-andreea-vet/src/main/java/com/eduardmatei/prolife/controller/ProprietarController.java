@@ -76,8 +76,7 @@ public class ProprietarController {
 		Animal animal = new Animal();			
 		
 		Proprietar proprietar = prolifeService.getProprietar(id);
-		
-		this.id = id;		
+				
 	
 		model.addAttribute("animal", animal);
 		model.addAttribute("proprietar", proprietar);
@@ -100,12 +99,11 @@ public class ProprietarController {
 	} 
 	
 	@PostMapping("/saveAnimal")
-	public String saveAnimal(@ModelAttribute("animal") Animal animal, Integer proprietarId) {
+	public String saveAnimal(@ModelAttribute("animal") Animal animal,@RequestParam("proprietarId") Integer proprietarId) {
 		
 		System.out.println("Animal: " + animal);
 		System.out.println("Proprietar: " + animal.getProprietar());
 		
-		proprietarId = this.id;
 		
 		System.out.println("Parameter id: " + proprietarId);
 		

@@ -74,15 +74,13 @@ public class TestDemo {
 			
 			session.beginTransaction();
 			
-			int id = 5;
+			int id = 3;
 			
-			Proprietar proprietar = session.get(Proprietar.class, id);
+			Animal animal = session.get(Animal.class, id);
 			
-			for (Animal animal : proprietar.getAnimals()) {
-				System.out.println(animal);
-			}
-			
-			
+			System.out.println("Animal: " + animal);
+			System.out.println("Animal detail: " + animal.getAnimalDetail());
+			session.delete(animal);
 			
 			session.getTransaction().commit();
 			

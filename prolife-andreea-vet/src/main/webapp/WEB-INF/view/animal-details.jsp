@@ -30,7 +30,7 @@
 		<h3>View Animal Detail</h3>
 		
 		
-		<p> Id : ${animalDetail.id}   </p>
+		<p> Id : ${animalDetail.animal.id}   </p>
 		 
 		<br></br>
 		

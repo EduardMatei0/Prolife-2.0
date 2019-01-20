@@ -36,6 +36,7 @@
 			
 			<!-- need to associate this data with proprietar id -->
 			<form:hidden path="proprietar.id" />
+			<input type="hidden" name="proprietarId" value="${proprietar.id}" />
 			
 			<table>
 				<tbody>
@@ -59,10 +60,7 @@
 						<td><form:input path="greutate" /></td>
 					</tr>
 					
-					<tr>
-						<td>${proprietar.id}</td>
-					</tr>
-										
+														
 
 					<tr>
 						<td><label></label></td>
