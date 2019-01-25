@@ -18,7 +18,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>PAV - Prolife Andreea Vet</h2>
+			<h2 align="center">PAV - Prolife Andreea Vet</h2>
 		</div>
 	</div>
 	
@@ -92,6 +92,8 @@
 				
 				</c:forEach>
 	</table>
+	
+	<img height="350" width="1060" src="https://ybxzcgnc7b-flywheel.netdna-ssl.com/wp-content/uploads/2017/11/cute.jpg" />
 	
 	
 </body>

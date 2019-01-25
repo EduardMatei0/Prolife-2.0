@@ -6,6 +6,7 @@ import com.eduardmatei.prolife.entity.Proprietar;
 
 
 public interface ProprietarDAO {
+	
 	public List<Proprietar> getProprietari();
 	
 	public void saveProprietar(Proprietar proprietar);

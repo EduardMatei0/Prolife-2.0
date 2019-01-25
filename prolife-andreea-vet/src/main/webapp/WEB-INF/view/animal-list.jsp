@@ -16,7 +16,7 @@
 
 	<div id="wrapper">
 		<div id="header">
-			<h2>PAV - Prolife Andreea Vet</h2>
+			<h2 align="center">PAV - Prolife Andreea Vet</h2>
 		</div>
 	</div>
 	
@@ -70,12 +70,18 @@
 						</td>
 						
 					</tr>
-				
+					
 				</c:forEach>
-	</table>
+				
+	</table>	
+		
+	<img height="350" width="525" src="https://i.pinimg.com/originals/ae/c4/53/aec453161b2f33ffc6219d8a758307a9.jpg" />
+	<img height="350" width="525" src="http://cdn.akc.org/content/article-body-image/beagle2_cute_puppies.jpg" />
 	
 	<br></br>
 	
-	<a href="${pageContext.request.contextPath}/proprietar/list" >List Proprietari</a>
+	<a href="${pageContext.request.contextPath}/proprietar/list" >List Proprietari</a> 
+	
+	
 </body>
 </html>
