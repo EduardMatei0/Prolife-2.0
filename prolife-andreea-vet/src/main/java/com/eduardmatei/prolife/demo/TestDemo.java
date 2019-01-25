@@ -34,15 +34,21 @@ public class TestDemo {
 			AnimalDetail animalDetail2 = new AnimalDetail("alopecie loco-regionala", "Imaverol", "tratement indelungat");
 			AnimalDetail animalDetail3 = new AnimalDetail("clinic sanatos", "vaccin NobivacRabies", "fara observatii");
 			AnimalDetail animalDetail4 = new AnimalDetail("clinic sanatos", "tuns si spalat", "agresiv");
+			AnimalDetail animalDetail5 = new AnimalDetail("gasit pe strada", "deparatizare interna si externa", "agresiv");
+			AnimalDetail animalDetail6 = new AnimalDetail("apatie, adinamie, deshidratare", "Arnetin, Meto, Perfuzie Ringer 50 ml/h", "progrnostic sumbru");
+			AnimalDetail animalDetail7 = new AnimalDetail("clinic sanatos", "control de rutina", "fara observatii");
 			
 			Animal animal2 = new Animal("Lola", "Canina", "Metis", 3.3, new Date());
 			Animal animal3 = new Animal("Cookie", "Felina", "Europeana", 5.0, new Date());
 			Animal animal4 = new Animal("Bubila", "Canina", "Metis", 4.5, new Date());
 			
-			animal1.setAnimalDetail(animalDetail1);
-			animal2.setAnimalDetail(animalDetail2);
-			animal3.setAnimalDetail(animalDetail3);
-			animal4.setAnimalDetail(animalDetail4);
+			animal1.add(animalDetail1);
+			animal1.add(animalDetail2);
+			animal2.add(animalDetail5);
+			animal3.add(animalDetail3);
+			animal3.add(animalDetail4);
+			animal4.add(animalDetail6);
+			animal4.add(animalDetail7);
 
 			
 			Proprietar proprietar1 = new Proprietar("Horhocea", "Alexandru", "0762980110", new Date());

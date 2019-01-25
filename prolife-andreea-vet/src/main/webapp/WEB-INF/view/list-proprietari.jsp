@@ -24,10 +24,25 @@
 	
 	<br>
 	
-	<input type="button" value="Add Proprietar"
+	<form:form action="search" method="POST">	
+		
+		
+	  Search proprietar: <input type="text" name="searchName" />
+	
+	<input type="submit" value="Search" class="add-button" />
+	
+	<input type="button"  value="Add Proprietar"
 					   onclick="window.location.href='showFormForAdd'; return false;"
-					   class="add-button"
-				/>
+					   class="add-button" /> 
+	
+	<input type="button" value="Animals List"
+						onclick="window.location.href='${pageContext.request.contextPath}/animal/animals'; return false;"
+						class="add-button" />
+	
+	
+	</form:form>
+					   
+	
 	
 	<table>
 				<tr>
@@ -78,9 +93,6 @@
 				</c:forEach>
 	</table>
 	
-	<br></br>
-	
-	<a href="${pageContext.request.contextPath}/animal/animals" >List Animale</a>
 	
 </body>
 

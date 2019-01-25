@@ -12,49 +12,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.eduardmatei.prolife.entity.Animal;
-import com.eduardmatei.prolife.entity.AnimalDetail;
 import com.eduardmatei.prolife.entity.Proprietar;
-import com.eduardmatei.prolife.service.ProlifeService;
+import com.eduardmatei.prolife.service.AnimalService;
+import com.eduardmatei.prolife.service.ProprietarService;
 
 @Controller
 @RequestMapping("/animal")
 public class AnimalController {
 	
 	
-	private final ProlifeService prolifeService;
-			
+	private final AnimalService animalService;
+	private final ProprietarService proprietarService;
+	
 	
 	@Autowired
-	public AnimalController(ProlifeService prolifeService) {
-		this.prolifeService = prolifeService;
+	public AnimalController(AnimalService animalService, ProprietarService proprietarService) {
+		this.proprietarService = proprietarService;
+		this.animalService = animalService;
 	}
 
 	@GetMapping("/animals")
 	public String getAnimals(Model model) {
-		List<Animal> animals = prolifeService.getAnimals();
+		List<Animal> animals = animalService.getAnimals();
 		
 		model.addAttribute("animals", animals);
 		
 		return "animal-list";
 	}
 	
-	@GetMapping("/animaldetails")
-	public String getAnimalDetail(@RequestParam("animalId") int id, Model model) {
-				
-		
-		AnimalDetail animalDetail = prolifeService.getAnimalDetail(id);
-		
-		model.addAttribute("animalDetail",animalDetail);
-		
-		return "animal-details";
-	}
+	
 	
 	@GetMapping("/showFormForAddAnimal")	
 	public String showFormForAddAnimal(@RequestParam("proprietarId") int id , Model model) {
 		
 		Animal animal = new Animal();			
 		
-		Proprietar proprietar = prolifeService.getProprietar(id);					
+		Proprietar proprietar = proprietarService.getProprietar(id);					
 		model.addAttribute("animal", animal);
 		model.addAttribute("proprietar", proprietar);
 		
@@ -70,7 +63,7 @@ public class AnimalController {
 		
 		System.out.println("Parameter id: " + proprietarId);
 		
-		prolifeService.saveAnimal(animal, proprietarId);
+		animalService.saveAnimal(animal, proprietarId);
 		
 		return "redirect:/animal/animals";
 		
@@ -80,7 +73,7 @@ public class AnimalController {
 	public String deleteAnimal(@RequestParam("animalId") int id) {
 		
 		// delete the customer
-		prolifeService.deleteAnimal(id);
+		animalService.deleteAnimal(id);
 		
 		return "redirect:/animal/animals";
 	}

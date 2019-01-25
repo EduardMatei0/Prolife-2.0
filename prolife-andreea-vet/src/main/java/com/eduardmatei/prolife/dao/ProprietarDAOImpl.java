@@ -66,4 +66,25 @@ public class ProprietarDAOImpl implements ProprietarDAO {
 		
 	}
 
+	@Override
+	public List<Proprietar> searchProprietari(String name) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		
+		Query<Proprietar> query = null;
+		
+		if(name != null && name.trim().length() > 0) {
+			query = session.createQuery("from Proprietar where lower(firstName) "
+					+ "like:Name or lower(lastName) like:Name", Proprietar.class);
+			query.setParameter("Name", "%" + name.toLowerCase() + "%");
+		} else {
+			query = session.createQuery("from Proprietar",Proprietar.class);
+		}
+		
+		List<Proprietar> proprietars = query.getResultList();
+		
+		return proprietars;
+		
+	}
+
 }

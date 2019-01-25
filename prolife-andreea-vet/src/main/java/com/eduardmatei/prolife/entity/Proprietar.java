@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="proprietar")
@@ -46,7 +45,6 @@ public class Proprietar {
 	}
 
 	public Proprietar(String firstName, String lastName, String telefon, Date data) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.telefon = telefon;

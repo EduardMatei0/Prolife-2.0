@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.eduardmatei.prolife.entity.Animal;
-import com.eduardmatei.prolife.entity.AnimalDetail;
 import com.eduardmatei.prolife.entity.Proprietar;
 
 @Repository
@@ -31,14 +30,7 @@ public class AnimalDAOImpl implements AnimalDAO {
 		return animals;
 	}
 
-	@Override
-	public AnimalDetail getAnimalDetail(int id) {
-		Session session = sessionFactory.getCurrentSession();
-		
-		Animal animal = session.get(Animal.class, id);
-		
-		return animal.getAnimalDetail();
-	}
+	
 
 	@Override
 	public void saveAnimal(Animal animal, int proprietarId) {
@@ -65,7 +57,14 @@ public class AnimalDAOImpl implements AnimalDAO {
 		
 	}
 	
-	
+	@Override
+	public Animal getAnimal(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		
+		Animal animal = session.get(Animal.class, id);
+		
+		return animal;
+	}
 	
 
 }

@@ -32,6 +32,7 @@
 					<th>Nume proprietar</th>
 					<th>Detalii animal</th>
 					<th>Actions</th>
+					<th>Visit</th>
 					
 					
 					
@@ -47,6 +48,10 @@
 						<c:param name="animalId" value="${animal.id}" />
 					</c:url>
 					
+					<c:url var="saveAnimalDetail" value="/showFormForAddAnimalDetail">
+						<c:param name="animalId" value="${animal.id}" />
+					</c:url>
+					
 					<tr>
 						<td> ${animal.id} </td>
 						<td> ${animal.nume} </td>
@@ -59,6 +64,9 @@
 						<td> 
 							<a href="${deleteLink}"
 									   onclick="if (!(confirm('Are you sure you want to delete this animal?'))) return false">Delete</a>
+						</td>
+						<td>
+						<a href="${saveAnimalDetail}">Add Visit</a>
 						</td>
 						
 					</tr>

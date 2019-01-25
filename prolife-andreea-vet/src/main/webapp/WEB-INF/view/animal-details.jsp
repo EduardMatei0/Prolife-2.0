@@ -16,7 +16,15 @@
 		  href="${pageContext.request.contextPath}/resources/css/add-customer-style.css">
 
 <title>Animal Detail</title>
+<style>
+.col {
 
+	float:left;
+	width:75%;
+	margin-top:6px;
+}
+
+</style>
 </head>
 <body>
 
@@ -27,24 +35,18 @@
 	</div>
 
 	<div id="container">
-		<h3>View Animal Detail</h3>
+		<h3>View Animal Details</h3>
 		
+		<c:forEach var="animalDetail" items="${animalDetails}">
+			<p> Anamneza: ${animalDetail.anamneza} </p>
+			<br>
+			<p> Tratament: ${animalDetail.tratament} </p>
+			<br>
+			<p> Observatii: ${animalDetail.observatii} </p>
+			<hr>
+		</c:forEach>
 		
-		<p> Id : ${animalDetail.animal.id}   </p>
-		 
-		<br></br>
-		
-		<p> Anamneza : ${animalDetail.anamneza} </p>
-		
-		<br></br>
-		
-		<p> Tratament: ${animalDetail.tratament} </p>
-		
-		<br></br>
-		
-		<p> Observatii: ${animalDetail.observatii} </p>
-		
-		<div style="clear; both;"></div>
+		<p> Id : ${animal.id}   </p>		 		
 		
 		<p>
 			<a href="${pageContext.request.contextPath}/animal/animals">Back to Animals</a>

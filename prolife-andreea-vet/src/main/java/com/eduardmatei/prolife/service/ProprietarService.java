@@ -1,18 +1,20 @@
-package com.eduardmatei.prolife.dao;
+package com.eduardmatei.prolife.service;
 
 import java.util.List;
 
 import com.eduardmatei.prolife.entity.Proprietar;
 
-
-public interface ProprietarDAO {
+public interface ProprietarService {
+	
 	public List<Proprietar> getProprietari();
 	
 	public void saveProprietar(Proprietar proprietar);
 
 	public Proprietar getProprietar(int id);
 
-	public void deleteProprietar(int id);
+	public void deleteProprietar(int id);		
+
+	public List<Proprietar> searchProprietars(String name);
 	
-	public List<Proprietar> searchProprietari(String name);
+	
 }

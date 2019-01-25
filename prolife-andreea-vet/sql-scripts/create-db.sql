@@ -25,15 +25,11 @@ CREATE TABLE `animal` (
   `rasa` varchar(45) DEFAULT NULL,
   `greutate` double DEFAULT NULL,
   `data_nasterii` date,
-  `animal_detail_id` int(11) DEFAULT NULL,
   `proprietar_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_DETAIL_idz` (`proprietar_id`),
   CONSTRAINT `FK_DETAILs` FOREIGN KEY (`proprietar_id`) 
-  REFERENCES `proprietar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  KEY `FK_DETAIL_idx` (`animal_detail_id`),
-  CONSTRAINT `FK_DETAIL` FOREIGN KEY (`animal_detail_id`) 
-  REFERENCES `animal_detail` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  REFERENCES `proprietar` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `animal_detail`;
@@ -43,7 +39,11 @@ CREATE TABLE `animal_detail` (
   `anamneza` text,
   `tratament` text,
   `observatii` text,
-  PRIMARY KEY (`id`)
+  `animal_detail_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_DETAIL_idx` (`animal_detail_id`),
+  CONSTRAINT `FK_DETAIL` FOREIGN KEY (`animal_detail_id`) 
+  REFERENCES `animal_detail` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 

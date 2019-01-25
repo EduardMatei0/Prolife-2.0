@@ -1,6 +1,8 @@
 package com.eduardmatei.prolife.entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -10,7 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -42,9 +44,8 @@ public class Animal {
 	@JoinColumn(name="proprietar_id")
 	private Proprietar proprietar;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="animal_detail_id")
-	private AnimalDetail animalDetail;
+	@OneToMany(mappedBy="animal", cascade=CascadeType.ALL)
+	private List<AnimalDetail> animalDetails;
 	
 	public Animal() {
 		this.nume = "Catel";
@@ -120,12 +121,23 @@ public class Animal {
 	}
 	
 	
-	public AnimalDetail getAnimalDetail() {
-		return animalDetail;
+	
+
+	public List<AnimalDetail> getAnimalDetails() {
+		return animalDetails;
 	}
 
-	public void setAnimalDetail(AnimalDetail animalDetail) {
-		this.animalDetail = animalDetail;
+	public void setAnimalDetails(List<AnimalDetail> animalDetails) {
+		this.animalDetails = animalDetails;
+	}
+	
+	public void add(AnimalDetail animalDetail) {
+		if (animalDetails == null) {
+			animalDetails = new ArrayList<>();
+		}
+		
+		animalDetails.add(animalDetail);
+		animalDetail.setAnimal(this);
 	}
 
 	@Override
@@ -133,7 +145,6 @@ public class Animal {
 		return "Animal [id=" + id + ", nume=" + nume + ", specie=" + specie + ", rasa=" + rasa + ", greutate="
 				+ greutate + ", dataNasterii=" + dataNasterii + "]";
 	}
-	
 	
 	
 	
